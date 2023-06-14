@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Entrada de Senha</title>
+  <style>
+    .container {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    #password {
+      padding: 10px;
+      font-size: 18px;
+    }
+
+    #keypad {
+      margin-top: 20px;
+    }
+
+    .key {
+      display: inline-block;
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      font-size: 18px;
+      text-align: center;
+      line-height: 50px;
+      cursor: pointer;
+      background-color: lightgray;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Entrada de Senha</h2>
+    <input type="password" id="password" readonly>
+    <div id="keypad">
+      <div class="key" onclick="addDigit(1)">1</div>
+      <div class="key" onclick="addDigit(2)">2</div>
+      <div class="key" onclick="addDigit(3)">3</div>
+      <div class="key" onclick="addDigit(4)">4</div>
+      <div class="key" onclick="addDigit(5)">5</div>
+      <div class="key" onclick="addDigit(6)">6</div>
+      <div class="key" onclick="addDigit(7)">7</div>
+      <div class="key" onclick="addDigit(8)">8</div>
+      <div class="key" onclick="addDigit(9)">9</div>
+      <div class="key" onclick="addDigit(0)">0</div>
+    </div>
+    <button onclick="validatePassword()">Validar</button>
+    <div id="message"></div>
+  </div>
+
+  <script>
+    let passwordField = document.getElementById("password");
+    let messageField = document.getElementById("message");
+
+    let password = "";
+
+    function addDigit(digit) {
+      password += digit;
+      passwordField.value = "*".repeat(password.length);
+    }
+
+    function validatePassword() {
+      if (password === "1234") {
+        messageField.innerHTML = "Senha correta. Acesso permitido.";
+        messageField.style.color = "green";
+      } else {
+        messageField.innerHTML = "Senha incorreta. Acesso negado.";
+        messageField.style.color = "red";
+      }
+      clearPassword();
+    }
+
+    function clearPassword() {
+      password = "";
+      passwordField.value = "";
+    }
+
+    // Manipuladores de eventos de teclado
+    document.addEventListener("keydown", function(event) {
+      const digit = event.key;
+      if (/[0-9]/.test(digit)) {
+        addDigit(digit);
+      }
+    });
+
+    document.addEventListener("keyup", function(event) {
+      const key = event.key;
+      if (key === "Enter") {
+        validatePassword();
+      }
+    });
+  </script>
