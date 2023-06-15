@@ -3,29 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Validar senha - Exercício 02</title>
+    <title>Document</title>
 </head>
 <body>
     <div>
-        <input type="password" id="inSenha">
-
         <div>
-            <div class="inNumero" onclick="adicionarNumero(1)">1<div>
-            <div id="inNumero" onclick="adicionarNumero(2)">2</div>
-            <div id="inNumero" onclick="adicionarNumero(3)">3</div>
-            <br><br>
-            <div id="inNumero" onclick="adicionarNumero(4)">4</div>
-            <div id="inNumero" onclick="adicionarNumero(5)">5</div>
-            <div id="inNumero" onclick="adicionarNumero(6)">6</div>
-            <br><br>
-            <div id="inNumero" onclick="adicionarNumero(7)">7</div>
-            <div id="inNumero" onclick="adicionarNumero(8)">8</div>
-            <div id="inNumero" onclick="adicionarNumero(9)">9</div>
-            <br><br>
-            <div id="inNumero" onclick="adicionarNumero(0)">0</div>
+            <label>Senha</label>
+            <input type="password" id="inSenha">
         </div>
 
-        <button onclick="validarSenha()">Validar Senha</button>
+        <div>
+            <div class="btn" button onclick="adicionarNumero(1)">1</div>
+            <div class="btn" button onclick="adicionarNumero(2)">2</div>
+            <div class="btn" button onclick="adicionarNumero(3)">3</div>
+            <br><br>
+            <div class="btn" button onclick="adicionarNumero(4)">4</div>
+            <div class="btn" button onclick="adicionarNumero(5)">5</div>
+            <div class="btn" button onclick="adicionarNumero(6)">6</div>
+            <br><br>
+            <div class="btn" button onclick="adicionarNumero(7)">7</div>
+            <div class="btn" button onclick="adicionarNumero(8)">8</div>
+            <div class="btn" button onclick="adicionarNumero(9)">9</div>
+            <br><br>
+            <div class="btn" button onclick="adicionarNumero(0)">0</div>
+        </div>
+    </div>
+
+    <div>
+        <button onclick="validar()">Validar Senha</button>
+    </div>
+
+    <div>
+        <p id="mensagem"></p>
     </div>
 
     <script src="ex02.js"></script>
