@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Exercício 02- Validação de Senha</title>
+    <link rel="stylesheet" href="ex02.css">
 </head>
 <body>
-    <div>
-        <div>
-            <label>Senha</label>
-            <input type="password" id="inSenha">
-        </div>
+    <div class="container">
 
-        <div>
+        <label>Senha</label>
+        <input type="password" id="inSenha" readonly>
+            
+        <div id="botoes">
             <div class="btn" button onclick="adicionarNumero(1)">1</div>
             <div class="btn" button onclick="adicionarNumero(2)">2</div>
             <div class="btn" button onclick="adicionarNumero(3)">3</div>
@@ -27,16 +27,18 @@
             <br><br>
             <div class="btn" button onclick="adicionarNumero(0)">0</div>
         </div>
-    </div>
 
-    <div>
         <button onclick="validar()">Validar Senha</button>
-    </div>
+      
+        <div>
+            <p id="mensagem"></p>
+        </div>
 
-    <div>
-        <p id="mensagem"></p>
+        <div id="telaHumberto">
+            <img src="humberto.jpg" alt="Foto do Humberto">
+            <p>Parabéns! Você desbloqueou o coração do Humberto.</p>
+          </div>
     </div>
-
     <script src="ex02.js"></script>
 </body>
 </html>
