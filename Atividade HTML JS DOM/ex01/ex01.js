@@ -19,7 +19,12 @@ function verificar(){
         else{
             frm.reset()
             frm.inValorA.focus()
-            return msg.innerHTML = "Valor inválido."
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Valor inválido!',
+              })
+            return;
         }
     }
 
