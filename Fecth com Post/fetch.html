@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	<button type="button" onclick="buscarDados()">Fetch</button>
+	
+	<button type="button" onclick="criarDado()">Criar</button>
+
+	<div id="divPessoas"></div>
+
+	<script>
+		async function buscarDados() {
+
+			let response = await fetch("https://academico.espm.br/testeapi/listar");
+
+			let lista = await response.json();
+
+			let html = "";
+
+			for (let i = 0; i < lista.length; i++) {
+				let pessoa = lista[i];
+				html += `
+				<p>${pessoa.id}</p>
+				<p>${pessoa.nome}</p>
+				<p>${pessoa.email}</p>
+				`;
+			}
+
+			let div = document.getElementById("divPessoas");
+			div.innerHTML = html;
+
+		}
+
+		async function criarDado() {
+			
+			let pessoa = {
+				"nome": "Teste 12-05",
+				"email": "email@site.com"
+			};
+
+			let response = await fetch("https://academico.espm.br/testeapi/criar", {
+				method: "post",
+				body: JSON.stringify(pessoa),
+				headers: {
+					"content-type": "application/json"
+				}
+			});
+
+			if (response.ok) {
+				alert("OK");
+			} else {
+				alert("Erro!");
+			}
+		}
+
+	</script>
+
+</body>
+</html>
