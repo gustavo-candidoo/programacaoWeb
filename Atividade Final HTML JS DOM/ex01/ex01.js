@@ -46,18 +46,3 @@ async function criar(){
         alert("Erro")
     }
 }
-
-async function excluir(jogoId) {
-    let url = `https://academico.espm.br/testeapi/jogo/${jogoId}`;
-  
-    let response = await fetch(url, {
-      method: "DELETE"
-    });
-  
-    if (response.ok) {
-      alert("Jogo excluído com sucesso");
-    } else {
-      alert("Erro ao excluir o jogo");
-    }
-  }
-  
